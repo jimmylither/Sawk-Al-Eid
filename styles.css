@@ -1,0 +1,24 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #1f2937;
+  --accent: #047857;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: white; position: sticky; top: 0; border-bottom: 1px solid #e5e7eb; }
+.brand { font-weight: 700; }
+.controls { display: flex; gap: 8px; }
+button { background: var(--accent); color: white; border: 0; border-radius: 8px; padding: 8px 12px; }
+main { max-width: 960px; margin: auto; padding: 16px; }
+.hero { padding: 12px 0; }
+.card { background: var(--card); border-radius: 12px; padding: 12px; margin: 12px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.ram { background: var(--card); border-radius: 12px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.badge { font-size: 12px; background: #ecfdf5; color: #065f46; padding: 2px 8px; border-radius: 999px; }
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+  .topbar { flex-direction: column; align-items: stretch; gap: 8px; }
+}
