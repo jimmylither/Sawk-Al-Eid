@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sawk Al Eid - E-commerce Moutons</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🐏 Sawk Al Eid</div>
+    <div class="controls">
+      <select id="langSelect">
+        <option value="fr">Français</option>
+        <option value="darija">Darija</option>
+      </select>
+      <button id="whatsappBtn">WhatsApp Live Video</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 data-i18n="title">Sawk Online Eid al-Adha</h1>
+      <p data-i18n="subtitle">Choisissez votre mouton avec transparence: poids, âge, santé ONSSA, livraison.</p>
+    </section>
+
+    <section class="filters card">
+      <h2 data-i18n="filters">Filtres</h2>
+      <div class="grid">
+        <label>Breed
+          <select id="breedFilter">
+            <option value="all">Tous</option>
+            <option value="Sardi">Sardi</option>
+            <option value="Barki">Barki</option>
+            <option value="Timahdite">Timahdite</option>
+          </select>
+        </label>
+        <label>Min Kg <input type="number" id="minWeight" placeholder="40" /></label>
+        <label>Max Kg <input type="number" id="maxWeight" placeholder="90" /></label>
+        <label>Age
+          <select id="ageFilter">
+            <option value="all">Tous</option>
+            <option value="Sennane">Sennane</option>
+            <option value="Jad3">Jad3</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-i18n="catalog">Catalogue</h2>
+      <div id="catalog" class="catalog"></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="journey">Parcours Client</h2>
+      <ol>
+        <li>Sélection du mouton avec vérification ONSSA.</li>
+        <li>Ajout des services: Keep-at-Farm / Abattage pro.</li>
+        <li>Planification livraison + mode de paiement (COD, virement).</li>
+        <li>Suivi commande jusqu'à la livraison/sacrifice.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Database Schema (Core)</h2>
+      <pre>
+animals(id, tag_code, breed, age_class, current_weight_kg, price_mad, onssa_cert_number, status)
+orders(id, customer_id, animal_id, order_status, payment_status, total_mad)
+deliveries(id, order_id, slot_start, slot_end, delivery_status, zone)
+payments(id, order_id, method, amount_mad, status)
+      </pre>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
