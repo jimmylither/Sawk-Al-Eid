@@ -1,78 +1,298 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sawk Al Eid - E-commerce Moutons</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيع الأكباش - عيد الأضحى المبارك</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .hero {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23E8F5E9" width="1200" height="400"/><circle cx="600" cy="200" r="150" fill="%23C8E6C9" opacity="0.5"/><text x="600" y="220" font-size="80" text-anchor="middle" fill="%232E7D32" font-family="Arial">🐑</text></svg>') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .sheep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .sheep-card {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #E8F5E9;
+        }
+
+        .sheep-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .sheep-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+
+        .sheep-card h3 {
+            color: #2E7D32;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .sheep-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.8em;
+            color: #1B5E20;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .features {
+            list-style: none;
+            text-align: right;
+            margin: 20px 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+
+        .features li:before {
+            content: "✓ ";
+            color: #2E7D32;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-section {
+            background: #E8F5E9;
+            padding: 40px;
+            margin-top: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item strong {
+            color: #1B5E20;
+            font-size: 1.2em;
+        }
+
+        footer {
+            background: #1B5E20;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .sheep-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">🐏 Sawk Al Eid</div>
-    <div class="controls">
-      <select id="langSelect">
-        <option value="fr">Français</option>
-        <option value="darija">Darija</option>
-      </select>
-      <button id="whatsappBtn">WhatsApp Live Video</button>
+    <div class="container">
+        <header>
+            <h1>🐑 أكباش عيد الأضحى المبارك 🐑</h1>
+            <p>أفضل الأكباش المغربية بجودة عالية وأسعار منافسة</p>
+        </header>
+
+        <div class="hero"></div>
+
+        <div class="content">
+            <h2 style="text-align: center; color: #2E7D32; font-size: 2em; margin-bottom: 30px;">اختر الكبش المناسب لك</h2>
+            
+            <div class="sheep-grid">
+                <!-- Card 1 -->
+                <div class="sheep-card">
+                    <div class="sheep-icon">🐏</div>
+                    <h3>كبش بلدي ممتاز</h3>
+                    <p>كبش مغربي أصلي، صحي ومربى بعناية في مراعي طبيعية</p>
+                    <ul class="features">
+                        <li>الوزن: 40-50 كلغ</li>
+                        <li>العمر: سنتان</li>
+                        <li>سلالة: بلدي مغربي</li>
+                        <li>التغذية: طبيعية 100%</li>
+                    </ul>
+                    <div class="price">2500 درهم</div>
+                    <button class="btn" onclick="orderNow('كبش بلدي ممتاز')">اطلب الآن</button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="sheep-card">
+                    <div class="sheep-icon">🐑</div>
+                    <h3>كبش سمنوني فاخر</h3>
+                    <p>كبش كبير الحجم، مثالي للعائلات الكبيرة والمناسبات</p>
+                    <ul class="features">
+                        <li>الوزن: 60-70 كلغ</li>
+                        <li>العمر: 3 سنوات</li>
+                        <li>سلالة: سمنوني</li>
+                        <li>التغذية: مختارة بعناية</li>
+                    </ul>
+                    <div class="price">3500 درهم</div>
+                    <button class="btn" onclick="orderNow('كبش سمنوني فاخر')">اطلب الآن</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="sheep-card">
+                    <div class="sheep-icon">🐐</div>
+                    <h3>كبش اقتصادي</h3>
+                    <p>خيار ممتاز بجودة جيدة وسعر مناسب للجميع</p>
+                    <ul class="features">
+                        <li>الوزن: 30-40 كلغ</li>
+                        <li>العمر: سنة ونصف</li>
+                        <li>سلالة: مخلطة</li>
+                        <li>التغذية: متوازنة</li>
+                    </ul>
+                    <div class="price">1800 درهم</div>
+                    <button class="btn" onclick="orderNow('كبش اقتصادي')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h2>📞 للتواصل والطلب</h2>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">نحن متواجدون لخدمتكم طوال أيام الأسبوع</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>📱 الهاتف:</strong><br>
+                        06XXXXXXXX
+                    </div>
+                    <div class="contact-item">
+                        <strong>📍 الموقع:</strong><br>
+                        [مدينة/منطقة البيع]
+                    </div>
+                    <div class="contact-item">
+                        <strong>⏰ أوقات العمل:</strong><br>
+                        يومياً من 8 صباحاً إلى 8 مساءً
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <p style="color: #1B5E20; font-weight: bold; font-size: 1.2em;">
+                        ✨ التوصيل متوفر مقابل رسوم إضافية ✨
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 - جميع الحقوق محفوظة | بيع الأكباش بمناسبة عيد الأضحى المبارك</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">تقبل الله طاعاتكم وكل عام وأنتم بخير</p>
+        </footer>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <h1 data-i18n="title">Sawk Online Eid al-Adha</h1>
-      <p data-i18n="subtitle">Choisissez votre mouton avec transparence: poids, âge, santé ONSSA, livraison.</p>
-    </section>
-
-    <section class="filters card">
-      <h2 data-i18n="filters">Filtres</h2>
-      <div class="grid">
-        <label>Breed
-          <select id="breedFilter">
-            <option value="all">Tous</option>
-            <option value="Sardi">Sardi</option>
-            <option value="Barki">Barki</option>
-            <option value="Timahdite">Timahdite</option>
-          </select>
-        </label>
-        <label>Min Kg <input type="number" id="minWeight" placeholder="40" /></label>
-        <label>Max Kg <input type="number" id="maxWeight" placeholder="90" /></label>
-        <label>Age
-          <select id="ageFilter">
-            <option value="all">Tous</option>
-            <option value="Sennane">Sennane</option>
-            <option value="Jad3">Jad3</option>
-          </select>
-        </label>
-      </div>
-    </section>
-
-    <section>
-      <h2 data-i18n="catalog">Catalogue</h2>
-      <div id="catalog" class="catalog"></div>
-    </section>
-
-    <section class="card">
-      <h2 data-i18n="journey">Parcours Client</h2>
-      <ol>
-        <li>Sélection du mouton avec vérification ONSSA.</li>
-        <li>Ajout des services: Keep-at-Farm / Abattage pro.</li>
-        <li>Planification livraison + mode de paiement (COD, virement).</li>
-        <li>Suivi commande jusqu'à la livraison/sacrifice.</li>
-      </ol>
-    </section>
-
-    <section class="card">
-      <h2>Database Schema (Core)</h2>
-      <pre>
-animals(id, tag_code, breed, age_class, current_weight_kg, price_mad, onssa_cert_number, status)
-orders(id, customer_id, animal_id, order_status, payment_status, total_mad)
-deliveries(id, order_id, slot_start, slot_end, delivery_status, zone)
-payments(id, order_id, method, amount_mad, status)
-      </pre>
-    </section>
-  </main>
-
-  <script src="app.js"></script>
+    <script>
+        function orderNow(sheepType) {
+            alert('شكراً لاختيارك!\n\nلقد اخترت: ' + sheepType + '\n\nيرجى الاتصال بنا على الرقم المذكور لإتمام الطلب وتحديد موعد الاستلام.');
+        }
+    </script>
 </body>
 </html>
